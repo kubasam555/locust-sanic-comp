@@ -64,5 +64,7 @@ class TestCases:
 
 
 if __name__ == '__main__':
+    start = time.perf_counter()
     TestCases()
+    end = time.perf_counter() - start
     print(f"Program finished in {end:0.2f} seconds.")
