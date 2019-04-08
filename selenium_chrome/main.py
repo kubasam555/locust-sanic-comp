@@ -41,6 +41,7 @@ class TestCases:
         self.get_drivers()
         self.fill_form()
         self.submit()
+        self.stop_tests()
 
     def get_drivers(self):
         for name, port in LOCUST_PORTS.items():
@@ -61,6 +62,12 @@ class TestCases:
         for driver in self.drivers:
             locust_form = driver.find_element_by_id('swarm_form')
             locust_form.submit()
+
+    def stop_tests(self):
+        input("Press Enter to stop tests...")
+        for driver in self.drivers:
+            stop_button = driver.find_element_by_class_name('stop-button')
+            stop_button.click()
 
 
 if __name__ == '__main__':
